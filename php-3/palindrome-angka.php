@@ -1,30 +1,22 @@
 <?php
-
-function palindrome_angka($angka) {
-    $terbalik = "";
-    $strAngka = strval($angka);
-    $hasil = "";
-    for($i=strlen($strAngka)-1;$i>=0; $i--){
-        $terbalik.=$strAngka[$i];}
-    if ($terbalik==$strAngka){
-        $angka+=1;
-        echo $angka."<br>";
-    } else {
-        while (true) {
-            $strAngka = strval($angka);
-            $terbalik = '';
-            for($i=strlen($strAngka)-1;$i>=0; $i--){
-                $terbalik.=$strAngka[$i];
-            }
-            if ($terbalik==$strAngka){
-                global $hasil;
-                $hasil = $strAngka . '<br>';
-                return $hasil;
-            } else {
-                $angka +=1;
-            }
-        }
+function palindrome ($str) {
+    $output = false;
+    if(strrev($str)==$str){
+        $output = true;
     }
+    return $output;
+}
+function palindrome_angka($angka) {
+    if($angka>=1 && $angka<=8){
+        return ($angka+1)."<br>";
+    }
+    if(palindrome($angka)) {
+        $angka++;
+    }
+    while(palindrome($angka)==false){
+        $angka++;
+    }
+    return $angka."<br>";
 }
 
 // TEST CASES

@@ -1,6 +1,13 @@
 <?php
 function ubah_huruf($string){
-//kode di sini
+    echo "Kata : $string <br>";
+    echo "Hasil : ";
+    for($i=0;$i<strlen($string);$i++){
+        $tampungOrde = ord($string[$i]);
+        $hasil = chr($tampungOrde+1);
+        echo $hasil;
+    }
+    echo "<br><br>";
 }
 
 // TEST CASES
